@@ -22,13 +22,6 @@ pub enum CombinedPropertyType {
 
 impl CombinedPropertyType {
     /// Parses a CSS key, such as `width` from a string:
-    ///
-    /// # Example
-    ///
-    /// ```rust
-    /// # use css::CombinedCssPropertyType;
-    /// assert_eq!(Some(CombinedCssPropertyType::Border), CombinedCssPropertyType::from_str("border"));
-    /// ```
     pub fn from_str(input: &str) -> Option<Self> {
         let input = input.trim();
         match input {
@@ -147,180 +140,180 @@ pub enum PType {
     TextShadow,
 }
 
-impl PType {
-    /// Returns the original string that was used to construct this `CssPropertyType`.
-    pub fn from_str(&self, input: &str) -> Option<Self> {
-        match input {
-            "color" => Some(PType::TextColor),
-            "font-size" => Some(PType::FontSize),
-            "font-family" => Some(PType::FontFamily),
-            "text-align" => Some(PType::TextAlign),
-            "letter-spacing" => Some(PType::LetterSpacing),
-            "line-height" => Some(PType::LineHeight),
-            "word-spacing" => Some(PType::WordSpacing),
-            "tab-width" => Some(PType::TabWidth),
-            "cursor" => Some(PType::Cursor),
-            "display" => Some(PType::Display),
-            "float" => Some(PType::Float),
-            "box-sizing" => Some(PType::BoxSizing),
-            "width" => Some(PType::Width),
-            "height" => Some(PType::Height),
-            "min-width" => Some(PType::MinWidth),
-            "min-height" => Some(PType::MinHeight),
-            "max-width" => Some(PType::MaxWidth),
-            "max-height" => Some(PType::MaxHeight),
-            "position" => Some(PType::Position),
-            "top" => Some(PType::Top),
-            "right" => Some(PType::Right),
-            "left" => Some(PType::Left),
-            "bottom" => Some(PType::Bottom),
-            "flex-wrap" => Some(PType::FlexWrap),
-            "flex-direction" => Some(PType::FlexDirection),
-            "flex-grow" => Some(PType::FlexGrow),
-            "flex-shrink" => Some(PType::FlexShrink),
-            "justify-content" => Some(PType::JustifyContent),
-            "align-items" => Some(PType::AlignItems),
-            "align-content" => Some(PType::AlignContent),
-            "background" => Some(PType::BackgroundContent),
-            "background-position" => Some(PType::BackgroundPosition),
-            "background-size" => Some(PType::BackgroundSize),
-            "background-repeat" => Some(PType::BackgroundRepeat),
-            "overflow-x" => Some(PType::OverflowX),
-            "overflow-y" => Some(PType::OverflowY),
-            "padding-top" => Some(PType::PaddingTop),
-            "padding-left" => Some(PType::PaddingLeft),
-            "padding-right" => Some(PType::PaddingRight),
-            "padding-bottom" => Some(PType::PaddingBottom),
-            "margin-top" => Some(PType::MarginTop),
-            "margin-left" => Some(PType::MarginLeft),
-            "margin-right" => Some(PType::MarginRight),
-            "margin-bottom" => Some(PType::MarginBottom),
-            "border-top-left-radius" => Some(PType::BorderTopLeftRadius),
-            "border-top-right-radius" => Some(PType::BorderTopRightRadius),
-            "border-bottom-left-radius" => Some(PType::BorderBottomLeftRadius),
-            "border-bottom-right-radius" => Some(PType::BorderBottomRightRadius),
-            "border-top-color" => Some(PType::BorderTopColor),
-            "border-right-color" => Some(PType::BorderRightColor),
-            "border-left-color" => Some(PType::BorderLeftColor),
-            "border-bottom-color" => Some(PType::BorderBottomColor),
-            "border-top-style" => Some(PType::BorderTopStyle),
-            "border-right-style" => Some(PType::BorderRightStyle),
-            "border-left-style" => Some(PType::BorderLeftStyle),
-            "border-bottom-style" => Some(PType::BorderBottomStyle),
-            "border-top-width" => Some(PType::BorderTopWidth),
-            "border-right-width" => Some(PType::BorderRightWidth),
-            "border-left-width" => Some(PType::BorderLeftWidth),
-            "border-bottom-width" => Some(PType::BorderBottomWidth),
-            "-box-shadow-left" => Some(PType::BoxShadowLeft),
-            "-box-shadow-right" => Some(PType::BoxShadowRight),
-            "-box-shadow-top" => Some(PType::BoxShadowTop),
-            "-box-shadow-bottom" => Some(PType::BoxShadowBottom),
-            "-scrollbar-style" => Some(PType::ScrollbarStyle),
-            "opacity" => Some(PType::Opacity),
-            "transform" => Some(PType::Transform),
-            "transform-origin" => Some(PType::TransformOrigin),
-            "perspective-origin" => Some(PType::PerspectiveOrigin),
-            "backface-visibility" => Some(PType::BackfaceVisibility),
-            "mix-blend-mode" => Some(PType::MixBlendMode),
-            "filter" => Some(PType::Filter),
-            "backdrop-filter" => Some(PType::BackdropFilter),
-            "text-shadow" => Some(PType::TextShadow),
-            _ => None,
-        }
-    }
-
-    /// Returns the original string that was used to construct this `CssPropertyType`.
-    pub const fn to_str(&self) -> &'static str {
-        match self {
-            PType::TextColor => "color",
-            PType::FontSize => "font-size",
-            PType::FontFamily => "font-family",
-            PType::TextAlign => "text-align",
-            PType::LetterSpacing => "letter-spacing",
-            PType::LineHeight => "line-height",
-            PType::WordSpacing => "word-spacing",
-            PType::TabWidth => "tab-width",
-            PType::Cursor => "cursor",
-            PType::Display => "display",
-            PType::Float => "float",
-            PType::BoxSizing => "box-sizing",
-            PType::Width => "width",
-            PType::Height => "height",
-            PType::MinWidth => "min-width",
-            PType::MinHeight => "min-height",
-            PType::MaxWidth => "max-width",
-            PType::MaxHeight => "max-height",
-            PType::Position => "position",
-            PType::Top => "top",
-            PType::Right => "right",
-            PType::Left => "left",
-            PType::Bottom => "bottom",
-            PType::FlexWrap => "flex-wrap",
-            PType::FlexDirection => "flex-direction",
-            PType::FlexGrow => "flex-grow",
-            PType::FlexShrink => "flex-shrink",
-            PType::JustifyContent => "justify-content",
-            PType::AlignItems => "align-items",
-            PType::AlignContent => "align-content",
-            PType::BackgroundContent => "background",
-            PType::BackgroundPosition => "background-position",
-            PType::BackgroundSize => "background-size",
-            PType::BackgroundRepeat => "background-repeat",
-            PType::OverflowX => "overflow-x",
-            PType::OverflowY => "overflow-y",
-            PType::PaddingTop => "padding-top",
-            PType::PaddingLeft => "padding-left",
-            PType::PaddingRight => "padding-right",
-            PType::PaddingBottom => "padding-bottom",
-            PType::MarginTop => "margin-top",
-            PType::MarginLeft => "margin-left",
-            PType::MarginRight => "margin-right",
-            PType::MarginBottom => "margin-bottom",
-            PType::BorderTopLeftRadius => "border-top-left-radius",
-            PType::BorderTopRightRadius => "border-top-right-radius",
-            PType::BorderBottomLeftRadius => "border-bottom-left-radius",
-            PType::BorderBottomRightRadius => "border-bottom-right-radius",
-            PType::BorderTopColor => "border-top-color",
-            PType::BorderRightColor => "border-right-color",
-            PType::BorderLeftColor => "border-left-color",
-            PType::BorderBottomColor => "border-bottom-color",
-            PType::BorderTopStyle => "border-top-style",
-            PType::BorderRightStyle => "border-right-style",
-            PType::BorderLeftStyle => "border-left-style",
-            PType::BorderBottomStyle => "border-bottom-style",
-            PType::BorderTopWidth => "border-top-width",
-            PType::BorderRightWidth => "border-right-width",
-            PType::BorderLeftWidth => "border-left-width",
-            PType::BorderBottomWidth => "border-bottom-width",
-            PType::BoxShadowLeft => "-box-shadow-left",
-            PType::BoxShadowRight => "-box-shadow-right",
-            PType::BoxShadowTop => "-box-shadow-top",
-            PType::BoxShadowBottom => "-box-shadow-bottom",
-            PType::ScrollbarStyle => "-scrollbar-style",
-            PType::Opacity => "opacity",
-            PType::Transform => "transform",
-            PType::TransformOrigin => "transform-origin",
-            PType::PerspectiveOrigin => "perspective-origin",
-            PType::BackfaceVisibility => "backface-visibility",
-            PType::MixBlendMode => "mix-blend-mode",
-            PType::Filter => "filter",
-            PType::BackdropFilter => "backdrop-filter",
-            PType::TextShadow => "text-shadow",
-        }
-    }
+impl Property {
+    // /// Returns the original string that was used to construct this `CssPropertyType`.
+    // pub fn from_str(&self, input: &str) -> Option<Self> {
+    //     match input {
+    //         "color" => Some(PType::TextColor),
+    //         "font-size" => Some(PType::FontSize),
+    //         "font-family" => Some(PType::FontFamily),
+    //         "text-align" => Some(PType::TextAlign),
+    //         "letter-spacing" => Some(PType::LetterSpacing),
+    //         "line-height" => Some(PType::LineHeight),
+    //         "word-spacing" => Some(PType::WordSpacing),
+    //         "tab-width" => Some(PType::TabWidth),
+    //         "cursor" => Some(PType::Cursor),
+    //         "display" => Some(PType::Display),
+    //         "float" => Some(PType::Float),
+    //         "box-sizing" => Some(PType::BoxSizing),
+    //         "width" => Some(PType::Width),
+    //         "height" => Some(PType::Height),
+    //         "min-width" => Some(PType::MinWidth),
+    //         "min-height" => Some(PType::MinHeight),
+    //         "max-width" => Some(PType::MaxWidth),
+    //         "max-height" => Some(PType::MaxHeight),
+    //         "position" => Some(PType::Position),
+    //         "top" => Some(PType::Top),
+    //         "right" => Some(PType::Right),
+    //         "left" => Some(PType::Left),
+    //         "bottom" => Some(PType::Bottom),
+    //         "flex-wrap" => Some(PType::FlexWrap),
+    //         "flex-direction" => Some(PType::FlexDirection),
+    //         "flex-grow" => Some(PType::FlexGrow),
+    //         "flex-shrink" => Some(PType::FlexShrink),
+    //         "justify-content" => Some(PType::JustifyContent),
+    //         "align-items" => Some(PType::AlignItems),
+    //         "align-content" => Some(PType::AlignContent),
+    //         "background" => Some(PType::BackgroundContent),
+    //         "background-position" => Some(PType::BackgroundPosition),
+    //         "background-size" => Some(PType::BackgroundSize),
+    //         "background-repeat" => Some(PType::BackgroundRepeat),
+    //         "overflow-x" => Some(PType::OverflowX),
+    //         "overflow-y" => Some(PType::OverflowY),
+    //         "padding-top" => Some(PType::PaddingTop),
+    //         "padding-left" => Some(PType::PaddingLeft),
+    //         "padding-right" => Some(PType::PaddingRight),
+    //         "padding-bottom" => Some(PType::PaddingBottom),
+    //         "margin-top" => Some(PType::MarginTop),
+    //         "margin-left" => Some(PType::MarginLeft),
+    //         "margin-right" => Some(PType::MarginRight),
+    //         "margin-bottom" => Some(PType::MarginBottom),
+    //         "border-top-left-radius" => Some(PType::BorderTopLeftRadius),
+    //         "border-top-right-radius" => Some(PType::BorderTopRightRadius),
+    //         "border-bottom-left-radius" => Some(PType::BorderBottomLeftRadius),
+    //         "border-bottom-right-radius" => Some(PType::BorderBottomRightRadius),
+    //         "border-top-color" => Some(PType::BorderTopColor),
+    //         "border-right-color" => Some(PType::BorderRightColor),
+    //         "border-left-color" => Some(PType::BorderLeftColor),
+    //         "border-bottom-color" => Some(PType::BorderBottomColor),
+    //         "border-top-style" => Some(PType::BorderTopStyle),
+    //         "border-right-style" => Some(PType::BorderRightStyle),
+    //         "border-left-style" => Some(PType::BorderLeftStyle),
+    //         "border-bottom-style" => Some(PType::BorderBottomStyle),
+    //         "border-top-width" => Some(PType::BorderTopWidth),
+    //         "border-right-width" => Some(PType::BorderRightWidth),
+    //         "border-left-width" => Some(PType::BorderLeftWidth),
+    //         "border-bottom-width" => Some(PType::BorderBottomWidth),
+    //         "-box-shadow-left" => Some(PType::BoxShadowLeft),
+    //         "-box-shadow-right" => Some(PType::BoxShadowRight),
+    //         "-box-shadow-top" => Some(PType::BoxShadowTop),
+    //         "-box-shadow-bottom" => Some(PType::BoxShadowBottom),
+    //         "-scrollbar-style" => Some(PType::ScrollbarStyle),
+    //         "opacity" => Some(PType::Opacity),
+    //         "transform" => Some(PType::Transform),
+    //         "transform-origin" => Some(PType::TransformOrigin),
+    //         "perspective-origin" => Some(PType::PerspectiveOrigin),
+    //         "backface-visibility" => Some(PType::BackfaceVisibility),
+    //         "mix-blend-mode" => Some(PType::MixBlendMode),
+    //         "filter" => Some(PType::Filter),
+    //         "backdrop-filter" => Some(PType::BackdropFilter),
+    //         "text-shadow" => Some(PType::TextShadow),
+    //         _ => None,
+    //     }
+    // }
+    //
+    // /// Returns the original string that was used to construct this `CssPropertyType`.
+    // pub const fn to_str(&self) -> &'static str {
+    //     match self {
+    //         PType::TextColor => "color",
+    //         PType::FontSize => "font-size",
+    //         PType::FontFamily => "font-family",
+    //         PType::TextAlign => "text-align",
+    //         PType::LetterSpacing => "letter-spacing",
+    //         PType::LineHeight => "line-height",
+    //         PType::WordSpacing => "word-spacing",
+    //         PType::TabWidth => "tab-width",
+    //         PType::Cursor => "cursor",
+    //         PType::Display => "display",
+    //         PType::Float => "float",
+    //         PType::BoxSizing => "box-sizing",
+    //         PType::Width => "width",
+    //         PType::Height => "height",
+    //         PType::MinWidth => "min-width",
+    //         PType::MinHeight => "min-height",
+    //         PType::MaxWidth => "max-width",
+    //         PType::MaxHeight => "max-height",
+    //         PType::Position => "position",
+    //         PType::Top => "top",
+    //         PType::Right => "right",
+    //         PType::Left => "left",
+    //         PType::Bottom => "bottom",
+    //         PType::FlexWrap => "flex-wrap",
+    //         PType::FlexDirection => "flex-direction",
+    //         PType::FlexGrow => "flex-grow",
+    //         PType::FlexShrink => "flex-shrink",
+    //         PType::JustifyContent => "justify-content",
+    //         PType::AlignItems => "align-items",
+    //         PType::AlignContent => "align-content",
+    //         PType::BackgroundContent => "background",
+    //         PType::BackgroundPosition => "background-position",
+    //         PType::BackgroundSize => "background-size",
+    //         PType::BackgroundRepeat => "background-repeat",
+    //         PType::OverflowX => "overflow-x",
+    //         PType::OverflowY => "overflow-y",
+    //         PType::PaddingTop => "padding-top",
+    //         PType::PaddingLeft => "padding-left",
+    //         PType::PaddingRight => "padding-right",
+    //         PType::PaddingBottom => "padding-bottom",
+    //         PType::MarginTop => "margin-top",
+    //         PType::MarginLeft => "margin-left",
+    //         PType::MarginRight => "margin-right",
+    //         PType::MarginBottom => "margin-bottom",
+    //         PType::BorderTopLeftRadius => "border-top-left-radius",
+    //         PType::BorderTopRightRadius => "border-top-right-radius",
+    //         PType::BorderBottomLeftRadius => "border-bottom-left-radius",
+    //         PType::BorderBottomRightRadius => "border-bottom-right-radius",
+    //         PType::BorderTopColor => "border-top-color",
+    //         PType::BorderRightColor => "border-right-color",
+    //         PType::BorderLeftColor => "border-left-color",
+    //         PType::BorderBottomColor => "border-bottom-color",
+    //         PType::BorderTopStyle => "border-top-style",
+    //         PType::BorderRightStyle => "border-right-style",
+    //         PType::BorderLeftStyle => "border-left-style",
+    //         PType::BorderBottomStyle => "border-bottom-style",
+    //         PType::BorderTopWidth => "border-top-width",
+    //         PType::BorderRightWidth => "border-right-width",
+    //         PType::BorderLeftWidth => "border-left-width",
+    //         PType::BorderBottomWidth => "border-bottom-width",
+    //         PType::BoxShadowLeft => "-box-shadow-left",
+    //         PType::BoxShadowRight => "-box-shadow-right",
+    //         PType::BoxShadowTop => "-box-shadow-top",
+    //         PType::BoxShadowBottom => "-box-shadow-bottom",
+    //         PType::ScrollbarStyle => "-scrollbar-style",
+    //         PType::Opacity => "opacity",
+    //         PType::Transform => "transform",
+    //         PType::TransformOrigin => "transform-origin",
+    //         PType::PerspectiveOrigin => "perspective-origin",
+    //         PType::BackfaceVisibility => "backface-visibility",
+    //         PType::MixBlendMode => "mix-blend-mode",
+    //         PType::Filter => "filter",
+    //         PType::BackdropFilter => "backdrop-filter",
+    //         PType::TextShadow => "text-shadow",
+    //     }
+    // }
 
     /// Returns whether this property will be inherited during cascading
     pub const fn is_inheritable(&self) -> bool {
-        use self::PType::*;
+        use self::Property::*;
         match self {
-            TextColor | FontFamily | FontSize | LineHeight | TextAlign => true,
+            TextColor(_) | FontFamily(_) | FontSize(_) | LineHeight(_) | TextAlign(_) => true,
             _ => false,
         }
     }
 
     /// Returns whether this property can trigger a re-layout (important for incremental layout and caching layouted DOMs).
-    pub const fn can_trigger_relayout(&self) -> bool {
-        use self::PType::*;
+    pub const fn can_relayout(&self) -> bool {
+        use self::Property::*;
 
         // Since the border can be larger than the content,
         // in which case the content needs to be re-layouted, assume true for Border
@@ -329,47 +322,47 @@ impl PType {
         // the text layout and therefore the screen layout
 
         match self {
-            TextColor
-            | Cursor
-            | BackgroundContent
-            | BackgroundPosition
-            | BackgroundSize
-            | BackgroundRepeat
-            | BorderTopLeftRadius
-            | BorderTopRightRadius
-            | BorderBottomLeftRadius
-            | BorderBottomRightRadius
-            | BorderTopColor
-            | BorderRightColor
-            | BorderLeftColor
-            | BorderBottomColor
-            | BorderTopStyle
-            | BorderRightStyle
-            | BorderLeftStyle
-            | BorderBottomStyle
-            | BoxShadowLeft
-            | BoxShadowRight
-            | BoxShadowTop
-            | BoxShadowBottom
-            | ScrollbarStyle
-            | Opacity
-            | Transform
-            | TransformOrigin
-            | PerspectiveOrigin
-            | BackfaceVisibility
-            | MixBlendMode
-            | Filter
-            | BackdropFilter
-            | TextShadow => false,
+            TextColor(_)
+            | Cursor(_)
+            | BackgroundContent(_)
+            | BackgroundPosition(_)
+            | BackgroundSize(_)
+            | BackgroundRepeat(_)
+            | BorderTopLeftRadius(_)
+            | BorderTopRightRadius(_)
+            | BorderBottomLeftRadius(_)
+            | BorderBottomRightRadius(_)
+            | BorderTopColor(_)
+            | BorderRightColor(_)
+            | BorderLeftColor(_)
+            | BorderBottomColor(_)
+            | BorderTopStyle(_)
+            | BorderRightStyle(_)
+            | BorderLeftStyle(_)
+            | BorderBottomStyle(_)
+            | BoxShadowLeft(_)
+            | BoxShadowRight(_)
+            | BoxShadowTop(_)
+            | BoxShadowBottom(_)
+            | ScrollbarStyle(_)
+            | Opacity(_)
+            | Transform(_)
+            | TransformOrigin(_)
+            | PerspectiveOrigin(_)
+            | BackfaceVisibility(_)
+            | MixBlendMode(_)
+            | Filter(_)
+            | BackdropFilter(_)
+            | TextShadow(_) => false,
             _ => true,
         }
     }
 
     /// Returns whether the property is a GPU property (currently only opacity and transforms)
-    pub const fn is_gpu_only_property(&self) -> bool {
+    pub const fn is_gpu_property(&self) -> bool {
         match self {
-            PType::Opacity |
-            PType::Transform /* | CssPropertyType::Color */ => true,
+            Property::Opacity(_) |
+            Property::Transform(_) /* | CssPropertyType::Color */ => true,
             _ => false
         }
     }
